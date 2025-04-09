@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>DzDx Technology - Coming Soon</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			
+			body {
+				font-family: 'Arial', sans-serif;
+				color: #ffffff;
+				background-color: #0a0a0f;
+				overflow: hidden;
+			}
+			
+			#canvas-container {
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				z-index: 1;
+			}
+			
+			.content {
+				position: relative;
+				z-index: 2;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+				padding: 20px;
+				text-align: center;
+				text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7); /* Add text shadow for better visibility */
+			}
+			
+			.logo {
+				font-size: 4rem;
+				margin-bottom: 1rem;
+				font-weight: 700;
+				letter-spacing: 0.2rem;
+				color: #ffffff;
+				text-shadow: 0 4px 6px rgba(0, 0, 0, 0.8); /* Stronger shadow for logo */
+			}
+			
+			.tagline {
+				font-size: 1.5rem;
+				margin-bottom: 2rem;
+				color: #4682b4; /* Mid blue accent */
+				font-weight: 300;
+				letter-spacing: 0.1rem;
+			}
+			
+			.coming-soon {
+				font-size: 1.8rem;
+				margin-bottom: 3rem;
+				font-weight: 400;
+			}
+			
+			.email-form {
+				display: flex;
+				max-width: 500px;
+				width: 100%;
+				margin-bottom: 2rem;
+			}
+			
+			.email-input {
+				flex-grow: 1;
+				padding: 12px 16px;
+				border: none;
+				background-color: rgba(255, 255, 255, 0.1);
+				color: #ffffff;
+				border-radius: 4px 0 0 4px;
+				font-size: 1rem;
+			}
+			
+			.email-button {
+				padding: 12px 24px;
+				border: none;
+				background-color: #4682b4; /* Mid blue accent */
+				color: #ffffff;
+				cursor: pointer;
+				border-radius: 0 4px 4px 0;
+				font-weight: 600;
+				transition: background-color 0.3s;
+			}
+			
+			.email-button:hover {
+				background-color: #5692c4;
+			}
+			
+			.social-links {
+				display: flex;
+				gap: 20px;
+				margin-top: 1rem;
+			}
+			
+			.social-links a {
+				color: #ffffff;
+				font-size: 1.5rem;
+				transition: color 0.3s;
+			}
+			
+			.social-links a:hover {
+				color: #4682b4; /* Mid blue accent */
+			}
+			
+			.footer {
+				position: absolute;
+				bottom: 1rem;
+				width: 100%;
+				text-align: center;
+				color: rgba(255, 255, 255, 0.8);
+				font-size: 0.9rem;
+				text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+				padding: 8px 0;
+				z-index: 3; /* Add z-index higher than content */
+			}
+			
+			@media (max-width: 768px) {
+				.logo {
+					font-size: 3rem;
+				}
+				
+				.tagline {
+					font-size: 1.2rem;
+				}
+				
+				.coming-soon {
+					font-size: 1.4rem;
+				}
+				
+				.email-form {
+					flex-direction: column;
+				}
+				
+				.email-input {
+					border-radius: 4px;
+					margin-bottom: 10px;
+				}
+				
+				.email-button {
+					border-radius: 4px;
+				}
+			}
+		</style>
+		<!-- Font Awesome for social icons -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	</head>
+	<body>
+		<div id="canvas-container"></div>
+		
+		<div class="content">
+			<h1 class="logo">DzDx</h1>
+			<p class="tagline">Navigating the Digital Frontier</p>
+			<p class="coming-soon">Our Website is Coming Soon</p>
+			
+			<form class="email-form">
+				<input type="email" class="email-input" placeholder="Enter your email for updates">
+				<button type="submit" class="email-button">Notify Me</button>
+			</form>
+			
+			<div class="social-links">
+				<a href="#"><i class="fab fa-linkedin"></i></a>
+				<a href="#"><i class="fab fa-twitter"></i></a>
+				<a href="#"><i class="fab fa-github"></i></a>
+				<a href="#"><i class="fab fa-instagram"></i></a>
+			</div>
+		</div>
+		
+		<div class="footer">
+			&copy; 2025 DzDx Technology. All Rights Reserved.
+		</div>
+
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "../build/three.webgpu.js",
+					"three/webgpu": "../build/three.webgpu.js",
+					"three/tsl": "../build/three.tsl.js",
+					"three/addons/": "./jsm/"
+				}
+			}
+		</script>
+
+		<script type="module">
+
+			import * as THREE from 'three';
+			import { step, normalWorld, output, texture, vec3, vec4, normalize, positionWorld, bumpMap, cameraPosition, color, uniform, mix, uv, max } from 'three/tsl';
+
+			import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+			import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
+
+			let camera, scene, renderer, controls, globe, clock;
+
+			init();
+
+			function init() {
+
+				clock = new THREE.Clock();
+
+				camera = new THREE.PerspectiveCamera( 25, window.innerWidth / window.innerHeight, 0.1, 100 );
+				camera.position.set( 3.5, 1.5, 2.5 ); // Move camera closer to the globe
+
+				scene = new THREE.Scene();
+
+				// Add stronger ambient light for better global visibility
+				const ambientLight = new THREE.AmbientLight('#444444', 0.7);
+				scene.add(ambientLight);
+
+				const sun = new THREE.DirectionalLight( '#3f454a', 2 ); // Using darker gray light for better text visibility
+				sun.position.set( 0, 0, 3 );
+				scene.add( sun );
+
+				// uniforms
+
+				const atmosphereDayColor = uniform( color( '#87CEEB' ) ); // Lighter sky blue for atmosphere
+				const atmosphereTwilightColor = uniform( color( '#4682b4' ) ); // Mid blue only for twilight
+				// Adjust roughness values for better material appearance
+				const roughnessLow = uniform( 0.2 ); // Lower minimum roughness for more shine
+				const roughnessHigh = uniform( 0.4 ); // Higher maximum roughness for more contrast
+
+				// textures
+
+				const textureLoader = new THREE.TextureLoader();
+
+				const dayTexture = textureLoader.load( './textures/planets/earth_day_4096.jpg' );
+				dayTexture.colorSpace = THREE.SRGBColorSpace;
+				dayTexture.anisotropy = 8;
+
+				const nightTexture = textureLoader.load( './textures/planets/earth_night_4096.jpg' );
+				nightTexture.colorSpace = THREE.SRGBColorSpace;
+				nightTexture.anisotropy = 8;
+
+				const bumpRoughnessCloudsTexture = textureLoader.load( './textures/planets/earth_bump_roughness_clouds_4096.jpg' );
+				bumpRoughnessCloudsTexture.anisotropy = 8;
+
+				// fresnel
+
+				const viewDirection = positionWorld.sub( cameraPosition ).normalize();
+				const fresnel = viewDirection.dot( normalWorld ).abs().oneMinus().toVar();
+
+				// sun orientation
+
+				const sunOrientation = normalWorld.dot( normalize( sun.position ) ).toVar();
+
+				// atmosphere color
+
+				const atmosphereColor = mix( atmosphereTwilightColor, atmosphereDayColor, sunOrientation.smoothstep( - 0.25, 0.75 ) );
+
+				// globe
+
+				const globeMaterial = new THREE.MeshStandardNodeMaterial();
+
+				const cloudsStrength = texture( bumpRoughnessCloudsTexture, uv() ).b.smoothstep( 0.2, 1 );
+
+				globeMaterial.colorNode = mix( texture( dayTexture ), vec3( 1 ), cloudsStrength.mul( 2 ) );
+
+				const roughness = max(
+					texture( bumpRoughnessCloudsTexture ).g,
+					step( 0.01, cloudsStrength )
+				);
+				globeMaterial.roughnessNode = roughness.remap( 0, 1, roughnessLow, roughnessHigh );
+
+				const night = texture( nightTexture );
+				// Make the Earth's day side colors more vibrant
+				const dayStrength = sunOrientation.smoothstep( - 0.25, 0.5 ).mul(1.2);
+
+				const atmosphereDayStrength = sunOrientation.smoothstep( - 0.5, 1 );
+				// Reduce atmosphere effect for clearer globe
+				const atmosphereMix = atmosphereDayStrength.mul( fresnel.pow( 2 ) ).mul( 0.25 ).clamp( 0, 1 );
+
+				let finalOutput = mix( night.rgb, output.rgb, dayStrength );
+				finalOutput = mix( finalOutput, atmosphereColor, atmosphereMix );
+
+				globeMaterial.outputNode = vec4( finalOutput, output.a );
+
+				const bumpElevation = max(
+					texture( bumpRoughnessCloudsTexture ).r,
+					cloudsStrength
+				);
+				// Enhance bump mapping for more detail
+				globeMaterial.normalNode = bumpMap( bumpElevation, 2.0 ); // Increase bump intensity
+
+				const sphereGeometry = new THREE.SphereGeometry( 1, 64, 64 );
+				globe = new THREE.Mesh( sphereGeometry, globeMaterial );
+				scene.add( globe );
+
+				// atmosphere
+
+				const atmosphereMaterial = new THREE.MeshBasicNodeMaterial( { side: THREE.BackSide, transparent: true } );
+				let alpha = fresnel.remap( 0.8, 1, 0.8, 0 ).pow( 4 ); // Sharper falloff, less blur
+				alpha = alpha.mul( sunOrientation.smoothstep( - 0.5, 1 ) );
+				// Reduce the atmosphere intensity
+				alpha = alpha.mul( 0.4 );
+				atmosphereMaterial.outputNode = vec4( atmosphereColor, alpha );
+
+				// Reduce atmosphere glow thickness
+				const atmosphere = new THREE.Mesh( sphereGeometry, atmosphereMaterial );
+				atmosphere.scale.setScalar( 1.025 ); // Thinner atmosphere layer
+				scene.add( atmosphere );
+
+				// Remove debug GUI for production site
+				/* 
+				const gui = new GUI();
+				gui
+					.addColor( { color: atmosphereDayColor.value.getHex( THREE.SRGBColorSpace ) }, 'color' )
+					.onChange( ( value ) => {
+						atmosphereDayColor.value.set( value );
+					} )
+					.name( 'atmosphereDayColor' );
+
+				gui
+					.addColor( { color: atmosphereTwilightColor.value.getHex( THREE.SRGBColorSpace ) }, 'color' )
+					.onChange( ( value ) => {
+						atmosphereTwilightColor.value.set( value );
+					} )
+					.name( 'atmosphereTwilightColor' );
+
+				gui.add( roughnessLow, 'value', 0, 1, 0.001 ).name( 'roughnessLow' );
+				gui.add( roughnessHigh, 'value', 0, 1, 0.001 ).name( 'roughnessHigh' );
+				*/
+
+				// renderer
+
+				// Higher quality renderer settings
+				renderer = new THREE.WebGPURenderer({
+					antialias: true,
+					powerPreference: "high-performance"
+				});
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				
+				// Add to canvas-container instead of body
+				const container = document.getElementById('canvas-container');
+				container.appendChild( renderer.domElement );
+				
+				renderer.setAnimationLoop( animate );
+
+				// controls
+
+				controls = new OrbitControls( camera, renderer.domElement );
+				controls.enableDamping = true;
+				controls.minDistance = 2.5;
+				controls.maxDistance = 10;
+				controls.enableZoom = false; // Disable zooming for the landing page
+				controls.autoRotate = true; // Auto-rotate for better visual
+				controls.autoRotateSpeed = 0.5; // Slow rotation
+
+				window.addEventListener( 'resize', onWindowResize ); 
+
+			}
+
+			function onWindowResize() {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+			}
+
+			async function animate() {
+
+				const delta = clock.getDelta();
+				globe.rotation.y += delta * 0.025;
+			
+				controls.update();
+
+				renderer.render( scene, camera );
+
+			}
+
+		</script>
+	</body>
+</html>
