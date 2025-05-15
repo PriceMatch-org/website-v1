@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>DzDx Technology - Coming Soon</title>
+		<title>DzDx Technology</title>
 		<link rel="icon" type="image/png" href="./public/favicon-32x32.png">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
@@ -16,7 +16,7 @@
 				font-family: 'Arial', sans-serif;
 				color: #ffffff;
 				background-color: #0a0a0f;
-				overflow: hidden;
+				overflow-x: hidden;
 			}
 			
 			#canvas-container {
@@ -36,7 +36,7 @@
 				height: 100vh;
 				padding: 20px;
 				text-align: center;
-				text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7); /* Add text shadow for better visibility */
+				text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
 			}
 			
 			.logo {
@@ -45,13 +45,13 @@
 				font-weight: 700;
 				letter-spacing: 0.2rem;
 				color: #ffffff;
-				text-shadow: 0 4px 6px rgba(0, 0, 0, 0.8); /* Stronger shadow for logo */
+				text-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
 			}
 			
 			.tagline {
 				font-size: 1.5rem;
 				margin-bottom: 2rem;
-				color: #4682b4; /* Mid blue accent */
+				color: #4682b4;
 				font-weight: 300;
 				letter-spacing: 0.1rem;
 			}
@@ -82,7 +82,7 @@
 			.email-button {
 				padding: 12px 24px;
 				border: none;
-				background-color: #4682b4; /* Mid blue accent */
+				background-color: #4682b4;
 				color: #ffffff;
 				cursor: pointer;
 				border-radius: 0 4px 4px 0;
@@ -107,11 +107,11 @@
 			}
 			
 			.social-links a:hover {
-				color: #4682b4; /* Mid blue accent */
+				color: #4682b4;
 			}
 			
 			.footer {
-				position: absolute;
+				position: fixed;
 				bottom: 1rem;
 				width: 100%;
 				text-align: center;
@@ -119,7 +119,112 @@
 				font-size: 0.9rem;
 				text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 				padding: 8px 0;
-				z-index: 3; /* Add z-index higher than content */
+				z-index: 3;
+			}
+			
+			.footer-links {
+				margin-top: 5px;
+			}
+			
+			.footer-links a {
+				color: rgba(255, 255, 255, 0.8);
+				text-decoration: none;
+				margin: 0 10px;
+				transition: color 0.3s;
+			}
+			
+			.footer-links a:hover {
+				color: #4682b4;
+				text-decoration: underline;
+			}
+			
+			/* Support Page Styles */
+			.support-page {
+				position: relative;
+				z-index: 2;
+				display: none;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				min-height: 100vh;
+				padding: 40px 20px;
+				max-width: 800px;
+				margin: 0 auto;
+				text-align: center;
+			}
+			
+			.support-email {
+				font-size: 1.5rem;
+				margin: 30px 0;
+				color: #4682b4;
+			}
+			
+			.back-button {
+				display: inline-block;
+				margin-top: 20px;
+				padding: 10px 20px;
+				background-color: #4682b4;
+				color: white;
+				text-decoration: none;
+				border-radius: 4px;
+				transition: background-color 0.3s;
+			}
+			
+			.back-button:hover {
+				background-color: #5692c4;
+			}
+			
+			/* Privacy Policy Page Styles */
+			.privacy-page {
+				position: relative;
+				z-index: 2;
+				display: none;
+				flex-direction: column;
+				min-height: 100vh;
+				padding: 40px 20px;
+				max-width: 800px;
+				margin: 0 auto;
+				overflow-y: auto;
+			}
+			
+			.privacy-content {
+				background-color: rgba(10, 10, 15, 0.85);
+				padding: 30px;
+				border-radius: 8px;
+				margin-bottom: 30px;
+				text-align: left;
+			}
+			
+			.privacy-content h1 {
+				font-size: 2rem;
+				margin-bottom: 1rem;
+				color: #ffffff;
+			}
+			
+			.privacy-content h2 {
+				font-size: 1.5rem;
+				margin: 1.5rem 0 1rem;
+				color: #4682b4;
+			}
+			
+			.privacy-content p {
+				margin-bottom: 1rem;
+				line-height: 1.6;
+			}
+			
+			.privacy-content ul {
+				margin-left: 20px;
+				margin-bottom: 1rem;
+			}
+			
+			.privacy-content li {
+				margin-bottom: 0.5rem;
+				line-height: 1.6;
+			}
+			
+			.privacy-content strong {
+				font-weight: 700;
+				color: #4682b4;
 			}
 			
 			@media (max-width: 768px) {
@@ -147,15 +252,28 @@
 				.email-button {
 					border-radius: 4px;
 				}
+				
+				.privacy-content {
+					padding: 20px;
+				}
+				
+				.privacy-content h1 {
+					font-size: 1.8rem;
+				}
+				
+				.privacy-content h2 {
+					font-size: 1.3rem;
+				}
 			}
 		</style>
 		<!-- Font Awesome for social icons -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	</head>
 	<body>
-		<div id="canvas-container"></div>
+		<div id="canvas-container" class="background-canvas"></div>
 		
-		<div class="content">
+		<!-- Home Page -->
+		<div id="home-page" class="content">
 			<img src="./public/dzdx_nobg.png" alt="DzDx Technology Logo" class="logo-image">
 			<h1 class="logo">DzDx Technology</h1>
 			<p class="tagline">Mind the Gap — We Code the Bridge</p>
@@ -174,8 +292,96 @@
 			</div>
 		</div>
 		
+		<!-- Support Page -->
+		<div id="support-page" class="support-page">
+			<h1 class="logo">DzDx Technology</h1>
+			<h2 class="tagline">Support</h2>
+			
+			<p>For any assistance or inquiries, please contact us at:</p>
+			<p class="support-email">adm.dzdx@gmail.com</p>
+			
+			<a href="/" class="back-button">Back to Home</a>
+		</div>
+		
+		<!-- Privacy Policy Page -->
+		<div id="privacy-page" class="privacy-page">
+			<div class="privacy-content">
+				<h1>DZDX Privacy Policy for Global Scan</h1>
+				<p><strong>Effective Date: May 15, 2025</strong></p>
+				
+				<h2>Introduction</h2>
+				<p>At DZDX, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy outlines how we collect, use, and safeguard your data when you use our Global Scan application.</p>
+				
+				<h2>Information We Collect</h2>
+				<ul>
+					<li><strong>Personal information</strong>: We may collect your name, email address, and account information when you create an account</li>
+					<li><strong>Device information</strong>: We collect device-specific information such as your device model, operating system version, unique device identifiers, and mobile network information</li>
+					<li><strong>Usage data</strong>: Information about how you use our application, including features accessed and in-app actions</li>
+					<li><strong>Location information</strong>: With your permission, we may collect and process information about your precise or approximate location</li>
+				</ul>
+				
+				<h2>How We Use Your Information</h2>
+				<p>We use the collected information to:</p>
+				<ul>
+					<li>Provide, maintain, and improve Global Scan</li>
+					<li>Create and maintain your account</li>
+					<li>Process your requests and respond to your inquiries</li>
+					<li>Troubleshoot and fix issues with our application</li>
+					<li>Protect against fraudulent, unauthorized, or illegal activity</li>
+				</ul>
+				
+				<h2>Data Storage and Security</h2>
+				<ul>
+					<li>All user data is stored on our self-hosted servers located in Kanpur, Uttar Pradesh, India</li>
+					<li>We implement industry-standard security measures to protect your personal information from unauthorized access, disclosure, alteration, or destruction</li>
+					<li>While we strive to use commercially acceptable means to protect your personal data, we cannot guarantee its absolute security</li>
+				</ul>
+				
+				<h2>Third-Party Sharing</h2>
+				<ul>
+					<li>We do not share your personal information with any third parties</li>
+					<li>We do not sell, rent, or lease your personal information to any company or individual</li>
+					<li>Global Scan does not contain advertisements or ad-related tracking technologies</li>
+					<li>Your data remains exclusively on our self-hosted servers</li>
+				</ul>
+				
+				<h2>Your Rights</h2>
+				<p>You have the right to:</p>
+				<ul>
+					<li>Access your personal data</li>
+					<li>Request correction of inaccurate data</li>
+					<li>Request deletion of your data</li>
+					<li>Withdraw consent at any time</li>
+					<li>Lodge a complaint with a supervisory authority</li>
+				</ul>
+				
+				<h2>Children's Privacy</h2>
+				<p>Our application is not directed to children under the age of 13. We do not knowingly collect personal information from children under 13. If we discover that a child under 13 has provided us with personal information, we will delete such information from our servers immediately.</p>
+				
+				<h2>Changes to This Privacy Policy</h2>
+				<p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Effective Date" at the top of this Privacy Policy.</p>
+				
+				<h2>Contact Us</h2>
+				<p>If you have any questions about this Privacy Policy, please contact us at:</p>
+				<ul>
+					<li>Email: privacy@dzdx.com</li>
+					<li>Address: DZDX, [Your Address], Kanpur, Uttar Pradesh, India</li>
+				</ul>
+				
+				<h2>Compliance</h2>
+				<p>This Privacy Policy is compliant with Google Play Store guidelines and applicable data protection laws.</p>
+			</div>
+			
+			<a href="/" class="back-button">Back to Home</a>
+		</div>
+		
 		<div class="footer">
 			&copy; 2025 DzDx Technology. All Rights Reserved.
+			<div class="footer-links">
+				<a href="/">Home</a>
+				<a href="/support">Support</a>
+				<a href="/privacy-policy">Privacy Policy</a>
+			</div>
 		</div>
 
 		<script type="importmap">
@@ -377,6 +583,55 @@
 
 			}
 
+		</script>
+		
+		<!-- Simple routing script -->
+		<script>
+			// Simple client-side routing
+			function handleRouting() {
+				const path = window.location.pathname;
+				
+				// Hide all pages
+				document.getElementById('home-page').style.display = 'none';
+				document.getElementById('support-page').style.display = 'none';
+				document.getElementById('privacy-page').style.display = 'none';
+				
+				// Show the appropriate page based on the route
+				if (path === '/support') {
+					document.getElementById('support-page').style.display = 'flex';
+					document.title = 'DzDx Technology - Support';
+				} else if (path === '/privacy-policy') {
+					document.getElementById('privacy-page').style.display = 'flex';
+					document.title = 'DzDx Technology - Privacy Policy';
+				} else {
+					document.getElementById('home-page').style.display = 'flex';
+					document.title = 'DzDx Technology - Coming Soon';
+				}
+			}
+			
+			// Handle initial page load
+			handleRouting();
+			
+			// Handle all link clicks to prevent page reload
+			document.addEventListener('click', function(e) {
+				// Find closest anchor tag
+				const anchor = e.target.closest('a');
+				
+				// If it's an internal link
+				if (anchor && anchor.getAttribute('href').startsWith('/')) {
+					e.preventDefault();
+					
+					// Update URL without reload
+					const href = anchor.getAttribute('href');
+					window.history.pushState({}, '', href);
+					
+					// Update the page content
+					handleRouting();
+				}
+			});
+			
+			// Handle browser back/forward buttons
+			window.addEventListener('popstate', handleRouting);
 		</script>
 	</body>
 </html>
