@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>DzDx Technology</title>
-		<!-- <link rel="icon" type="image/png" href="./public/favicon-32x32.png"> -->
-		 <link rel="icon" type="image/svg+xml" href="./public/favicon.svg">
+		<title>DzDx Technology - Privacy Policy</title>
+		<link rel="icon" type="image/png" href="../public/favicon-32x32.png">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<style>
@@ -27,88 +26,72 @@
 				z-index: 1;
 			}
 			
-			.content {
+			.privacy-page {
 				position: relative;
 				z-index: 2;
 				display: flex;
 				flex-direction: column;
-				justify-content: center;
-				align-items: center;
-				height: 100vh;
-				padding: 20px;
-				text-align: center;
-				text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+				min-height: 100vh;
+				padding: 40px 20px;
+				max-width: 800px;
+				margin: 0 auto;
+				overflow-y: auto;
 			}
 			
-			.logo {
-				font-size: 4rem;
+			.privacy-content {
+				background-color: rgba(10, 10, 15, 0.85);
+				padding: 30px;
+				border-radius: 8px;
+				margin-bottom: 30px;
+				text-align: left;
+			}
+			
+			.privacy-content h1 {
+				font-size: 2rem;
 				margin-bottom: 1rem;
+				color: #ffffff;
+			}
+			
+			.privacy-content h2 {
+				font-size: 1.5rem;
+				margin: 1.5rem 0 1rem;
+				color: #4682b4;
+			}
+			
+			.privacy-content p {
+				margin-bottom: 1rem;
+				line-height: 1.6;
+			}
+			
+			.privacy-content ul {
+				margin-left: 20px;
+				margin-bottom: 1rem;
+			}
+			
+			.privacy-content li {
+				margin-bottom: 0.5rem;
+				line-height: 1.6;
+			}
+			
+			.privacy-content strong {
 				font-weight: 700;
-				letter-spacing: 0.2rem;
-				color: #ffffff;
-				text-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
-			}
-			
-			.tagline {
-				font-size: 1.5rem;
-				margin-bottom: 2rem;
 				color: #4682b4;
-				font-weight: 300;
-				letter-spacing: 0.1rem;
 			}
 			
-			.coming-soon {
-				font-size: 1.8rem;
-				margin-bottom: 3rem;
-				font-weight: 400;
-			}
-			
-			.email-form {
-				display: flex;
-				max-width: 500px;
-				width: 100%;
-				margin-bottom: 2rem;
-			}
-			
-			.email-input {
-				flex-grow: 1;
-				padding: 12px 16px;
-				border: none;
-				background-color: rgba(255, 255, 255, 0.1);
-				color: #ffffff;
-				border-radius: 4px 0 0 4px;
-				font-size: 1rem;
-			}
-			
-			.email-button {
-				padding: 12px 24px;
-				border: none;
+			.back-button {
+				display: inline-block;
+				margin-top: 20px;
+				padding: 10px 20px;
 				background-color: #4682b4;
-				color: #ffffff;
-				cursor: pointer;
-				border-radius: 0 4px 4px 0;
-				font-weight: 600;
+				color: white;
+				text-decoration: none;
+				border-radius: 4px;
 				transition: background-color 0.3s;
+				align-self: center;
 			}
 			
-			.email-button:hover {
+			.back-button:hover {
 				background-color: #5692c4;
-			}
-			
-			.social-links {
-				display: flex;
-				gap: 20px;
-				margin-top: 1rem;
-			}
-			
-			.social-links a {
-				color: #ffffff;
-				font-size: 1.5rem;
-				transition: color 0.3s;
-			}
-			
-			.social-links a:hover {
-				color: #4682b4;
 			}
 			
 			.footer {
@@ -140,63 +123,100 @@
 			}
 			
 			@media (max-width: 768px) {
-				.logo {
-					font-size: 3rem;
+				.privacy-content {
+					padding: 20px;
 				}
 				
-				.tagline {
-					font-size: 1.2rem;
+				.privacy-content h1 {
+					font-size: 1.8rem;
 				}
 				
-				.coming-soon {
-					font-size: 1.4rem;
-				}
-				
-				.email-form {
-					flex-direction: column;
-				}
-				
-				.email-input {
-					border-radius: 4px;
-					margin-bottom: 10px;
-				}
-				
-				.email-button {
-					border-radius: 4px;
+				.privacy-content h2 {
+					font-size: 1.3rem;
 				}
 			}
 		</style>
-		<!-- Font Awesome for social icons -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	</head>
 	<body>
 		<div id="canvas-container" class="background-canvas"></div>
 		
-		<div class="content">
-			<img src="./public/new_main.svg" alt="DzDx Technology Logo" class="logo-image">
-			<h1 class="logo">DZDX Solutions</h1>
-			<p class="tagline">Compiling Innovation. Delivering Solutions....</p>
-			<!-- <p class="coming-soon">Compiling Innovation. Delivering Solutions....</p> -->
-			
-			<form class="email-form">
-				<input type="email" class="email-input" placeholder="Enter your email for updates">
-				<button type="submit" class="email-button">Notify Me</button>
-			</form>
-			
-			<div class="social-links">
-				<a href="#"><i class="fab fa-linkedin"></i></a>
-				<a href="#"><i class="fab fa-twitter"></i></a>
-				<a href="#"><i class="fab fa-github"></i></a>
-				<a href="#"><i class="fab fa-instagram"></i></a>
+		<div class="privacy-page">
+			<div class="privacy-content">
+				<h1>DZDX Privacy Policy for Global Scan</h1>
+				<p><strong>Effective Date: May 15, 2025</strong></p>
+				
+				<h2>Introduction</h2>
+				<p>At DZDX, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy outlines how we collect, use, and safeguard your data when you use our Global Scan application.</p>
+				
+				<h2>Information We Collect</h2>
+				<ul>
+					<li><strong>Personal information</strong>: We may collect your name, email address, and account information when you create an account</li>
+					<li><strong>Device information</strong>: We collect device-specific information such as your device model, operating system version, unique device identifiers, and mobile network information</li>
+					<li><strong>Usage data</strong>: Information about how you use our application, including features accessed and in-app actions</li>
+					<li><strong>Location information</strong>: With your permission, we may collect and process information about your precise or approximate location</li>
+				</ul>
+				
+				<h2>How We Use Your Information</h2>
+				<p>We use the collected information to:</p>
+				<ul>
+					<li>Provide, maintain, and improve Global Scan</li>
+					<li>Create and maintain your account</li>
+					<li>Process your requests and respond to your inquiries</li>
+					<li>Troubleshoot and fix issues with our application</li>
+					<li>Protect against fraudulent, unauthorized, or illegal activity</li>
+				</ul>
+				
+				<h2>Data Storage and Security</h2>
+				<ul>
+					<li>All user data is stored on our self-hosted servers located in Kanpur, Uttar Pradesh, India</li>
+					<li>We implement industry-standard security measures to protect your personal information from unauthorized access, disclosure, alteration, or destruction</li>
+					<li>While we strive to use commercially acceptable means to protect your personal data, we cannot guarantee its absolute security</li>
+				</ul>
+				
+				<h2>Third-Party Sharing</h2>
+				<ul>
+					<li>We do not share your personal information with any third parties</li>
+					<li>We do not sell, rent, or lease your personal information to any company or individual</li>
+					<li>Global Scan does not contain advertisements or ad-related tracking technologies</li>
+					<li>Your data remains exclusively on our self-hosted servers</li>
+				</ul>
+				
+				<h2>Your Rights</h2>
+				<p>You have the right to:</p>
+				<ul>
+					<li>Access your personal data</li>
+					<li>Request correction of inaccurate data</li>
+					<li>Request deletion of your data</li>
+					<li>Withdraw consent at any time</li>
+					<li>Lodge a complaint with a supervisory authority</li>
+				</ul>
+				
+				<h2>Children's Privacy</h2>
+				<p>Our application is not directed to children under the age of 13. We do not knowingly collect personal information from children under 13. If we discover that a child under 13 has provided us with personal information, we will delete such information from our servers immediately.</p>
+				
+				<h2>Changes to This Privacy Policy</h2>
+				<p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Effective Date" at the top of this Privacy Policy.</p>
+				
+				<h2>Contact Us</h2>
+				<p>If you have any questions about this Privacy Policy, please contact us at:</p>
+				<ul>
+					<li>Email: privacy@dzdx.com</li>
+					<li>Address: DZDX, [Your Address], Kanpur, Uttar Pradesh, India</li>
+				</ul>
+				
+				<h2>Compliance</h2>
+				<p>This Privacy Policy is compliant with Google Play Store guidelines and applicable data protection laws.</p>
 			</div>
+			
+			<a href="../" class="back-button">Back to Home</a>
 		</div>
 		
 		<div class="footer">
 			&copy; 2025 DzDx Technology. All Rights Reserved.
 			<div class="footer-links">
-				<a href="/">Home</a>
-				<a href="/support">Support</a>
-				<a href="/privacy-policy">Privacy Policy</a>
+				<a href="../">Home</a>
+				<a href="../support">Support</a>
+				<a href="../privacy-policy">Privacy Policy</a>
 			</div>
 		</div>
 
@@ -206,7 +226,7 @@
 					"three": "../build/three.webgpu.js",
 					"three/webgpu": "../build/three.webgpu.js",
 					"three/tsl": "../build/three.tsl.js",
-					"three/addons/": "./jsm/"
+					"three/addons/": "../jsm/"
 				}
 			}
 		</script>
@@ -217,7 +237,6 @@
 			import { step, normalWorld, output, texture, vec3, vec4, normalize, positionWorld, bumpMap, cameraPosition, color, uniform, mix, uv, max } from 'three/tsl';
 
 			import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-			import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
 
 			let camera, scene, renderer, controls, globe, clock;
 
@@ -228,56 +247,48 @@
 				clock = new THREE.Clock();
 
 				camera = new THREE.PerspectiveCamera( 25, window.innerWidth / window.innerHeight, 0.1, 100 );
-				camera.position.set( 3.5, 1.5, 2.5 ); // Move camera closer to the globe
+				camera.position.set( 3.5, 1.5, 2.5 );
 
 				scene = new THREE.Scene();
 
-				// Add stronger ambient light for better global visibility
 				const ambientLight = new THREE.AmbientLight('#444444', 0.7);
 				scene.add(ambientLight);
 
-				const sun = new THREE.DirectionalLight( '#3f454a', 2 ); // Using darker gray light for better text visibility
+				const sun = new THREE.DirectionalLight( '#3f454a', 2 );
 				sun.position.set( 0, 0, 3 );
 				scene.add( sun );
 
 				// uniforms
-
-				const atmosphereDayColor = uniform( color( '#87CEEB' ) ); // Lighter sky blue for atmosphere
-				const atmosphereTwilightColor = uniform( color( '#4682b4' ) ); // Mid blue only for twilight
-				// Adjust roughness values for better material appearance
-				const roughnessLow = uniform( 0.2 ); // Lower minimum roughness for more shine
-				const roughnessHigh = uniform( 0.4 ); // Higher maximum roughness for more contrast
+				const atmosphereDayColor = uniform( color( '#87CEEB' ) );
+				const atmosphereTwilightColor = uniform( color( '#4682b4' ) );
+				const roughnessLow = uniform( 0.2 );
+				const roughnessHigh = uniform( 0.4 );
 
 				// textures
-
 				const textureLoader = new THREE.TextureLoader();
 
-				const dayTexture = textureLoader.load( './textures/planets/earth_day_4096.jpg' );
+				const dayTexture = textureLoader.load( '../textures/planets/earth_day_4096.jpg' );
 				dayTexture.colorSpace = THREE.SRGBColorSpace;
 				dayTexture.anisotropy = 8;
 
-				const nightTexture = textureLoader.load( './textures/planets/earth_night_4096.jpg' );
+				const nightTexture = textureLoader.load( '../textures/planets/earth_night_4096.jpg' );
 				nightTexture.colorSpace = THREE.SRGBColorSpace;
 				nightTexture.anisotropy = 8;
 
-				const bumpRoughnessCloudsTexture = textureLoader.load( './textures/planets/earth_bump_roughness_clouds_4096.jpg' );
+				const bumpRoughnessCloudsTexture = textureLoader.load( '../textures/planets/earth_bump_roughness_clouds_4096.jpg' );
 				bumpRoughnessCloudsTexture.anisotropy = 8;
 
 				// fresnel
-
 				const viewDirection = positionWorld.sub( cameraPosition ).normalize();
 				const fresnel = viewDirection.dot( normalWorld ).abs().oneMinus().toVar();
 
 				// sun orientation
-
 				const sunOrientation = normalWorld.dot( normalize( sun.position ) ).toVar();
 
 				// atmosphere color
-
 				const atmosphereColor = mix( atmosphereTwilightColor, atmosphereDayColor, sunOrientation.smoothstep( - 0.25, 0.75 ) );
 
 				// globe
-
 				const globeMaterial = new THREE.MeshStandardNodeMaterial();
 
 				const cloudsStrength = texture( bumpRoughnessCloudsTexture, uv() ).b.smoothstep( 0.2, 1 );
@@ -291,11 +302,9 @@
 				globeMaterial.roughnessNode = roughness.remap( 0, 1, roughnessLow, roughnessHigh );
 
 				const night = texture( nightTexture );
-				// Make the Earth's day side colors more vibrant
 				const dayStrength = sunOrientation.smoothstep( - 0.25, 0.5 ).mul(1.2);
 
 				const atmosphereDayStrength = sunOrientation.smoothstep( - 0.5, 1 );
-				// Reduce atmosphere effect for clearer globe
 				const atmosphereMix = atmosphereDayStrength.mul( fresnel.pow( 2 ) ).mul( 0.25 ).clamp( 0, 1 );
 
 				let finalOutput = mix( night.rgb, output.rgb, dayStrength );
@@ -307,51 +316,24 @@
 					texture( bumpRoughnessCloudsTexture ).r,
 					cloudsStrength
 				);
-				// Enhance bump mapping for more detail
-				globeMaterial.normalNode = bumpMap( bumpElevation, 2.0 ); // Increase bump intensity
+				globeMaterial.normalNode = bumpMap( bumpElevation, 2.0 );
 
 				const sphereGeometry = new THREE.SphereGeometry( 1, 64, 64 );
 				globe = new THREE.Mesh( sphereGeometry, globeMaterial );
 				scene.add( globe );
 
 				// atmosphere
-
 				const atmosphereMaterial = new THREE.MeshBasicNodeMaterial( { side: THREE.BackSide, transparent: true } );
-				let alpha = fresnel.remap( 0.8, 1, 0.8, 0 ).pow( 4 ); // Sharper falloff, less blur
+				let alpha = fresnel.remap( 0.8, 1, 0.8, 0 ).pow( 4 );
 				alpha = alpha.mul( sunOrientation.smoothstep( - 0.5, 1 ) );
-				// Reduce the atmosphere intensity
 				alpha = alpha.mul( 0.4 );
 				atmosphereMaterial.outputNode = vec4( atmosphereColor, alpha );
 
-				// Reduce atmosphere glow thickness
 				const atmosphere = new THREE.Mesh( sphereGeometry, atmosphereMaterial );
-				atmosphere.scale.setScalar( 1.025 ); // Thinner atmosphere layer
+				atmosphere.scale.setScalar( 1.025 );
 				scene.add( atmosphere );
 
-				// Remove debug GUI for production site
-				/* 
-				const gui = new GUI();
-				gui
-					.addColor( { color: atmosphereDayColor.value.getHex( THREE.SRGBColorSpace ) }, 'color' )
-					.onChange( ( value ) => {
-						atmosphereDayColor.value.set( value );
-					} )
-					.name( 'atmosphereDayColor' );
-
-				gui
-					.addColor( { color: atmosphereTwilightColor.value.getHex( THREE.SRGBColorSpace ) }, 'color' )
-					.onChange( ( value ) => {
-						atmosphereTwilightColor.value.set( value );
-					} )
-					.name( 'atmosphereTwilightColor' );
-
-				gui.add( roughnessLow, 'value', 0, 1, 0.001 ).name( 'roughnessLow' );
-				gui.add( roughnessHigh, 'value', 0, 1, 0.001 ).name( 'roughnessHigh' );
-				*/
-
 				// renderer
-
-				// Higher quality renderer settings
 				renderer = new THREE.WebGPURenderer({
 					antialias: true,
 					powerPreference: "high-performance"
@@ -359,21 +341,19 @@
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				
-				// Add to canvas-container instead of body
 				const container = document.getElementById('canvas-container');
 				container.appendChild( renderer.domElement );
 				
 				renderer.setAnimationLoop( animate );
 
 				// controls
-
 				controls = new OrbitControls( camera, renderer.domElement );
 				controls.enableDamping = true;
 				controls.minDistance = 2.5;
 				controls.maxDistance = 10;
-				controls.enableZoom = false; // Disable zooming for the landing page
-				controls.autoRotate = true; // Auto-rotate for better visual
-				controls.autoRotateSpeed = 0.5; // Slow rotation
+				controls.enableZoom = false;
+				controls.autoRotate = true;
+				controls.autoRotateSpeed = 0.5;
 
 				window.addEventListener( 'resize', onWindowResize ); 
 
