@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+// import { useState } from 'react';
 import Image from 'next/image';
 import EarthBackground from '@/components/EarthBackground';
 import EmailForm from '@/components/ui/EmailForm';

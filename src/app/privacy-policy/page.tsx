@@ -96,7 +96,7 @@ export default function PrivacyPolicyPage() {
 
             <section>
               <h2 className="text-xl md:text-2xl font-semibold text-dzdx-blue mb-3">
-                Children's Privacy
+                Children&apos;s Privacy
               </h2>
               <p className="text-white/90 leading-relaxed">
                 Our application is not directed to children under the age of 13. We do not knowingly collect personal information from children under 13. If we discover that a child under 13 has provided us with personal information, we will delete such information from our servers immediately.
@@ -108,7 +108,7 @@ export default function PrivacyPolicyPage() {
                 Changes to This Privacy Policy
               </h2>
               <p className="text-white/90 leading-relaxed">
-                We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Effective Date" at the top of this Privacy Policy.
+                We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the &quot;Effective Date&quot; at the top of this Privacy Policy.
               </p>
             </section>
 

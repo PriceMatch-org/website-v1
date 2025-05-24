@@ -26,6 +26,7 @@ const EmailForm = () => {
       setMessage('Thank you! We\'ll notify you when we launch.');
       setEmail('');
     } catch (error) {
+      console.error('Error submitting email:', error);
       setMessage('Something went wrong. Please try again.');
     } finally {
       setIsSubmitting(false);
